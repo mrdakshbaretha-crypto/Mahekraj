@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mahekraj Organics</title>
+  <style>
+    /* --- Global Styles --- */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5fff5;
+      color: #2f4f2f;
+    }
+    header {
+      background: linear-gradient(90deg, #3a923a, #6dbf6d);
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .cart-btn {
+      background: #fff;
+      color: #3a923a;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    /* --- Hero Section --- */
+    .hero {
+      background: url('https://images.unsplash.com/photo-1506806732259-39c2d0268443?auto=format&fit=crop&w=1600&q=80') no-repeat center/cover;
+      height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+      text-align: center;
+      padding: 20px;
+    }
+    .hero h2 {
+      font-size: 3rem;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+    .hero button {
+      margin-top: 20px;
+      padding: 12px 25px;
+      border: none;
+      background: #3a923a;
+      color: white;
+      font-size: 1rem;
+      border-radius: 25px;
+      cursor: pointer;
+    }
+    .hero button:hover {
+      background: #2f7a2f;
+    }
+    /* --- Products Section --- */
+    .products {
+      padding: 50px 20px;
+      text-align: center;
+    }
+    .products h3 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .product {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+      transition: transform 0.2s;
+    }
+    .product:hover {
+      transform: translateY(-5px);
+    }
+    .product img {
+      width: 100%;
+      border-radius: 12px;
+    }
+    .product h4 {
+      margin: 15px 0 10px;
+    }
+    .product p {
+      font-size: 0.9rem;
+      margin: 5px 0;
+    }
+    .product button {
+      margin-top: 10px;
+      padding: 8px 15px;
+      border: none;
+      background: #3a923a;
+      color: white;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+    .product button:hover {
+      background: #2f7a2f;
+    }
+    /* --- Footer --- */
+    footer {
+      background: #3a923a;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>Mahekraj Organics</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Products</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+    <button class="cart-btn">🛒 Cart (0)</button>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div>
+      <h2>Fresh Organic Vegetables, Fruits & Kirana</h2>
+      <p>Pure • Natural • Healthy – Direct from Farm to You</p>
+      <button>Shop Now</button>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="products">
+    <h3>Our Bestsellers</h3>
+    <div class="product-grid">
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1607305387299-f35df0d0e9b4?auto=format&fit=crop&w=600&q=80" alt="Organic Vegetables">
+        <h4>Organic Vegetables</h4>
+        <p>Fresh & chemical-free</p>
+        <p>₹120 / kg</p>
+        <button>Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&w=600&q=80" alt="Organic Fruits">
+        <h4>Organic Fruits</h4>
+        <p>Juicy & naturally sweet</p>
+        <p>₹150 / kg</p>
+        <button>Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1606755962773-8bfa03ea9b7d?auto=format&fit=crop&w=600&q=80" alt="Organic Kirana">
+        <h4>Organic Kirana</h4>
+        <p>Staples for healthy living</p>
+        <p>₹80 / pack</p>
+        <button>Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Mahekraj Organics | Pure & Healthy Living</p>
+  </footer>
+
+  <script>
+    // Simple cart count logic
+    const cartBtn = document.querySelector('.cart-btn');
+    let cartCount = 0;
+    document.querySelectorAll('.product button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        cartCount++;
+        cartBtn.textContent = 🛒 Cart (${cartCount});
+      });
+    });
+  </script>
+</body>
+</html>
